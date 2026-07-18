@@ -1,7 +1,7 @@
 <div align="center">
 
-(QRPhish Detector)
-High-Performance Phishing & Malware URL Analysis API
+(smart-qr-scanner)
+High-Performance qr scanning API
 </div>
 
 <p align="center">
@@ -17,10 +17,10 @@ High-Performance Phishing & Malware URL Analysis API
 <img src="https://img.shields.io/badge/license-MIT-yellow?style=for-the-badge" alt="License MIT">
 </p>
 
-In a world where QR codes are a gateway to the digital world, QRPhish Detector provides a critical line of defense. This enterprise-grade API is engineered to deliver real-time, accurate, and low-latency security verdicts on URLs, protecting users from increasingly sophisticated phishing and malware attacks.
+In a world where QR codes are a gateway to the digital world, smart qr scanner provides a vital utility. This enterprise-grade API is engineered to deliver real-time, accurate, and low-latency results on URLs, aiding users.
 
   Architecture & Design
-This project is built using a modern, service-oriented architecture designed for performance, scalability, and maintainability. The core design principle is to provide rapid threat assessment by intelligently layering data retrieval strategies.
+This project is built using a modern, service-oriented architecture designed for performance, scalability, and maintainability. The core design principle is to provide  assessment by intelligently layering data retrieval strategies.
 
 Request Flow Diagram
 The system employs a cache-aside strategy to ensure that known threats are identified in sub-millisecond time, while new URLs undergo a comprehensive analysis through trusted external services.
@@ -30,10 +30,10 @@ Code snippet
 sequenceDiagram
     participant Client
     participant API Gateway
-    participant QRPhish API (Controller)
+    participant smart qr scanning API (Controller)
     participant Redis Cache (Blacklist)
     participant Analysis Service
-    participant VirusTotal API
+    participant external API
     participant PostgreSQL DB (Logs)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     <img width="1060" height="941" alt="flowQuishield" src="https://github.com/user-attachments/assets/5e8229e0-2a47-47c1-b63b-ffb3b59b1f2e" />
 
@@ -42,7 +42,7 @@ sequenceDiagram
   Key Design Decisions
 Performance-First Caching: Redis was chosen as the caching layer due to its in-memory data structure and extremely low read latency. This is crucial for a security application where response time is a key feature. By caching known malicious URLs, we reduce the load on our analysis services and provide an instantaneous response for over 90% of common threats.
 
-Authoritative External Intelligence: Instead of reinventing the wheel, the service integrates with the VirusTotal API, a trusted and comprehensive aggregator of security vendor data. This decision allows the project to leverage world-class threat intelligence without the overhead of maintaining a complex detection engine.
+Authoritative External Intelligence: Instead of reinventing the wheel, the service integrates with the external API, a trusted and comprehensive aggregator of security vendor data. This decision allows the project to leverage world-class threat intelligence without the overhead of maintaining a complex detection engine.
 
 Data Durability & Auditing: While Redis provides speed, PostgreSQL is used as the system-of-record for all transactions. Its ACID compliance guarantees that every scan is logged and every blacklisted URL is durably persisted, providing a crucial audit trail for security operations.
 
@@ -105,7 +105,7 @@ Gradle 8.x
 
 Docker & Docker Compose (for easy database/cache setup)
 
-A valid VirusTotal API Key
+A valid  API Key
 
 Local Installation & Launch
 Clone the repository:
