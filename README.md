@@ -113,7 +113,7 @@ Clone the repository:
 Bash
 
 git clone https://github.com/dhruvbajpai29/qrfish-detector.git
-cd qrfish-detector
+cd smart-qr-scanner
 Configure Environment Secrets:
 
 Rename the application.properties.template file in src/main/resources to application.properties.
